@@ -1,23 +1,22 @@
 <template>
- <div>
-   <p>home component</p>
- </div>
+<div>
+  <p>home component</p>
+</div>
 </template>
 
 <script>
- export default {
-   data () {
-     return {
+export default {
+  data () {
+    return {
 
-     }
-   },
-   components: {
+    }
+  },
+  components: {
 
-   }
- }
+  }
+}
 </script>
 
 <style>
 
- 
 </style>
