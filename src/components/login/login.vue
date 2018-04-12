@@ -39,6 +39,7 @@ export default {
       const res = await axios.post('http://localhost:8888/api/private/v1/login', this.userForm)
       const data = res.data
       if (data.meta.status === 200) {
+        window.localStorage.setItem('admin-token',JSON.stringify(data.data))
         this.$router.push({
           name: 'home'
         })
@@ -57,19 +58,19 @@ export default {
   align-items: center;
 }
 
-.login-wrap .login-from {
+.login-from {
   background-color: #fff;
   width: 400px;
   padding: 30px;
   border-radius: 5px;
 }
 
-.login-wrap .login-from .heading {
+.login-from .heading {
   text-align: center;
   color: skyblue;
 }
 
-.login-wrap .login-from .login-btn {
+.login-from .login-btn {
   width: 100%;
 }
 </style>
