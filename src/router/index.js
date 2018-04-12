@@ -3,7 +3,12 @@ import Router from 'vue-router'
 
 import Login from '@/components/login/login'
 import Home from '@/components/home/home'
+
+// 用户管理组件
 import UserList from '@/components/user-list/user-list'
+
+// 角色管理组件
+import RoleList from '@/components/role-list/role-list'
 
 Vue.use(Router)
 
@@ -23,6 +28,11 @@ const router = new Router({
           name: 'user-list',
           path: '/users',
           component: UserList
+        },
+        {
+          name: 'role-list',
+          path: '/roles',
+          component: RoleList
         }
       ]
     }
