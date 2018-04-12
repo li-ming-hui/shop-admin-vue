@@ -39,7 +39,7 @@ export default {
       const res = await axios.post('http://localhost:8888/api/private/v1/login', this.userForm)
       const data = res.data
       if (data.meta.status === 200) {
-        window.localStorage.setItem('admin-token',JSON.stringify(data.data))
+        window.localStorage.setItem('admin-token', JSON.stringify(data.data))
         this.$router.push({
           name: 'home'
         })
