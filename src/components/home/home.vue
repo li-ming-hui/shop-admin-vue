@@ -22,7 +22,8 @@
           class="el-menu-vertical-demo aside-menu"
           @open="handleOpen"
           @close="handleClose"
-          :unique-opened="true">
+          :unique-opened="false"
+          :router="true">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
