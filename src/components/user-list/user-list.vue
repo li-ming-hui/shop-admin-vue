@@ -21,6 +21,7 @@
   </el-row>
   <el-table
     :data="tableData"
+    border
     style="width: 100%">
     <el-table-column
       prop="username"
@@ -92,5 +93,8 @@ export default {
 }
 .el-pagination {
   margin-top: 15px;
+}
+.user-list-search button {
+  margin-left: 10px;
 }
 </style>
