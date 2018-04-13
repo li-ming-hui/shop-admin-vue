@@ -20,7 +20,6 @@
 
 <script>
 import axios from 'axios'
-
 export default {
   data () {
     return {
@@ -39,9 +38,13 @@ export default {
       const res = await axios.post('http://localhost:8888/api/private/v1/login', this.userForm)
       const data = res.data
       if (data.meta.status === 200) {
-        window.localStorage.setItem('admin-token',JSON.stringify(data.data))
+        window.localStorage.setItem('admin-token', JSON.stringify(data.data))
         this.$router.push({
           name: 'home'
+        })
+        this.$message({
+          type: 'success',
+          message: '登陆成功!'
         })
       }
     }
@@ -57,19 +60,16 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .login-from {
   background-color: #fff;
   width: 400px;
   padding: 30px;
   border-radius: 5px;
 }
-
 .login-from .heading {
   text-align: center;
   color: skyblue;
 }
-
 .login-from .login-btn {
   width: 100%;
 }
