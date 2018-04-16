@@ -48,6 +48,7 @@
         <!-- 我们在这里可以通过 scope.row 拿到当前遍历行对象 -->
         <el-switch
           v-model="scope.row.mg_state"
+          @change="(val) => {handleStateChange(val, scope.row)}"
           active-color="#13ce66"
           inactive-color="#ff4949">
         </el-switch>
@@ -126,6 +127,20 @@ export default {
       // 把真实的总记录交给分页插件
       // 分页插件会根据总记录数和每页大小自动完成分页效果
       this.totalSize = total
+    },
+
+    async handleStateChange (state, user) {
+      const {id: userId} = user
+      // 拿到用户 id
+      // 拿到 Switch 开关的选中状态 state
+      // 发起请求改变状态
+      const res = await this.$http.put(`/users/${userId}/state/${state}`)
+      if (res.data.meta.status === 200) {
+        this.$message({
+          type: 'success',
+          message: `用户状态${state ? '启用' : '禁用'}成功`
+        })
+      }
     }
   }
 }
