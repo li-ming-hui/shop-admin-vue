@@ -51,15 +51,10 @@
  </template>
 
 <script>
-import {getToken} from '@/assets/js/auth'
 
 export default {
   async created () {
-    const token = getToken()
     const res = await this.$http.get('/users', {
-      headers: {
-        Authorization: token // 配置请求头携带身份令牌
-      },
       params: { // 请求参数，对象会被转换为 k=v&k=v 的格式，然后拼接到请求路径 ? 后面发起请求
         pagenum: 1,
         pagesize: 5
