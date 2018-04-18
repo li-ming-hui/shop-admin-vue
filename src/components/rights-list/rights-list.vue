@@ -45,7 +45,7 @@ export default {
   data () {
     return {
       tableData: [],
-      loading: true //默认 loading 状态
+      loading: true // 默认 loading 状态
     }
   },
   methods: {
@@ -54,7 +54,7 @@ export default {
       const {data, meta} = res.data
       if (meta.status === 200) {
         this.tableData = data
-        this.loading = false //取消 loading 状态
+        this.loading = false // 取消 loading 状态
       }
     }
   }
