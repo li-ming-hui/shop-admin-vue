@@ -53,7 +53,7 @@ export default {
       const {data, meta} = res.data
       if (meta.status === 200) {
         this.tableData = data
-        this.loading = false  // 数据加载完成，取消 loading 状态
+        this.loading = false // 数据加载完成，取消 loading 状态
       }
     }
   }
