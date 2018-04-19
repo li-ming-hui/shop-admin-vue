@@ -27,6 +27,7 @@
           <el-col :span="4">
             <el-tag
               closable
+              @close="handleRmoveRight(scope.row, level1)"
               type="">
               {{ level1.authName }}
             </el-tag>
@@ -41,6 +42,7 @@
               <el-col :span="4">
                 <el-tag
                   closable
+                  @close="handleRmoveRight(scope.row, level2)"
                   type="success">
                   {{ level2.authName }}
                 </el-tag>
@@ -53,6 +55,7 @@
                   v-for="level3 in level2.children"
                   :key="level3.id"
                   closable
+                  @close="handleRmoveRight(scope.row, level3)"
                   type="warning">
                   {{ level3.authName }}
                 </el-tag>
@@ -138,6 +141,10 @@
       :default-checked-keys="[5]" 用来指定默认被选中的节点，值是一个数组，数组中填充 node-key 指定的 id
 
       接下来只需要找到角色拥有的所有权限 id 赋值给 default-checked-keys 就真实的默认选中了。
+    
+      default-checked-keys 用来指定默认被选中的节点
+        ['用户管理', '添加角色']
+      根据我们设置的 node-key="authName" 来指定的
     -->
     <el-tree
       :data="treeData"
