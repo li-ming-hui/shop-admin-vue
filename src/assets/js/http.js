@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '@/router/index'
 import {getToken} from './auth'
 
 const http = axios.create({
@@ -35,6 +36,13 @@ http.interceptors.response.use(function (response) {
   const {meta} = response.data
   if (meta.status === 403) {
     window.alert('你没有权限执行该操作！')
+  } else if (meta.status === 401) {
+    // 如果用户长时间未操作导致 token 失效或者有人恶意伪造 token
+    // 我们也不允许他进入我的系统界面
+    // 所以我们这里通过对 401 统一拦截跳转到登录页
+    router.push({
+      name: 'login'
+    })
   }
 
   // 类似于 next()，放行通过响应拦截器
