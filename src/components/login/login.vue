@@ -72,7 +72,7 @@ export default {
 }
 .login-from .heading {
   text-align: center;
-  color: skyblue;
+  color: deepskyblue;
 }
 .login-from .login-btn {
   width: 100%;
